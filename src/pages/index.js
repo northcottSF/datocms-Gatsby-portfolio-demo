@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => (
 <div>
   <h2>{data.datoCmsHome.introText}</h2>
   <Img fluid="{data.datoCmsHome.heroImage.fluid}"/>
-  <h2>{data.datoCmsHome.formtext}</h2>
+  <h2>{data.datoCmsHome.formText}</h2>
 </div>
 
   </Layout>
@@ -46,7 +46,7 @@ export const query = graphql`
       introText
       formText
       heroImage{
-        fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
+        fluid(maxWidth: 450, imgixParams: { auto: "compress" }) {
                         ...GatsbyDatoCmsSizes
       }
       
