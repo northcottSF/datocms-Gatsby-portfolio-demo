@@ -46,8 +46,9 @@ export const query = graphql`
       introText
       formText
       heroImage{
-        fluid(maxWidth: 450, imgixParams: { auto: "compress" }) {
-                        ...GatsbyDatoCmsSizes
+        fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
+                        ...GatsbyDatoCmsFluid
+                        ...GatsbyImageSharpFluid_tracedSVG
       }
       
     }
