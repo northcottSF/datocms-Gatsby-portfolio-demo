@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
 import Layout from "../components/layout"
-import styles from '../styles/index.module.css'
+import Styles from '../styles/index.module.css'
 import BackgroundImage from 'gatsby-background-image'
 import Slider from 'react-slick'
 
@@ -31,29 +31,29 @@ const IndexPage = ({ data }) => (
 <BackgroundImage style={{height:'100vh'}}
 fluid={data.datoCmsHome.homeImage.fluid}
 backgroundColor={`#040e18`}>
-  <h1 className={styles.test}>Love Your Brand.</h1>
-<h2 className={styles.test}>{data.datoCmsHome.introText}</h2>
+  <h1 className={Styles.test}>Love Your Brand.</h1>
+<h2 className={Styles.test}>{data.datoCmsHome.introText}</h2>
 </BackgroundImage>
 
- <div className={styles.fffContainer}>
+ <div className={Styles.fffContainer}>
 
  <BackgroundImage style={{height:'100vh'}}
-fluid={data.datoCmsHome.formImage.fluid} className={styles.formFunctionFlow}>
-    <div className={styles.fffContent}>
+fluid={data.datoCmsHome.formImage.fluid} className={Styles.formFunctionFlow}>
+    <div className={Styles.fffContent}>
       <h2 >{data.datoCmsHome.formTitle}</h2>
       <p>{data.datoCmsHome.formDescription}</p>
     </div>
     </BackgroundImage>
     <BackgroundImage style={{height:'100vh'}}
-fluid={data.datoCmsHome.functionImage.fluid} className={styles.formFunctionFlow}>
-    <div className={styles.fffContent}>
+fluid={data.datoCmsHome.functionImage.fluid} className={Styles.formFunctionFlow}>
+    <div className={Styles.fffContent}>
       <h2 >{data.datoCmsHome.functionTitle}</h2>
       <p>{data.datoCmsHome.functionDescription}</p>
     </div>
     </BackgroundImage>
     <BackgroundImage style={{height:'100vh'}}
-fluid={data.datoCmsHome.flowImage.fluid} className={styles.formFunctionFlow}>
-    <div className={styles.fffContent}>
+fluid={data.datoCmsHome.flowImage.fluid} className={Styles.formFunctionFlow}>
+    <div className={Styles.fffContent}>
       <h2 >{data.datoCmsHome.flowTitle}</h2>
       <p>{data.datoCmsHome.flowDescription}</p>
     </div>
