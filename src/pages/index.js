@@ -3,7 +3,9 @@ import { Link, graphql } from 'gatsby'
 import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
 import Layout from "../components/layout"
-import '../styles/index.css'
+import styles from '../styles/index.module.css'
+import BackgroundImage from 'gatsby-background-image'
+import Slider from 'react-slick'
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -26,16 +28,74 @@ const IndexPage = ({ data }) => (
         </div>
       ))}
     </Masonry> */}
-<div>
-  <h2>{data.datoCmsHome.introText}</h2>
-  <Img fluid="{data.datoCmsHome.heroImage.fluid}"/>
-  <h2>{data.datoCmsHome.formText}</h2>
-</div>
+<BackgroundImage style={{height:'100vh'}}
+fluid={data.datoCmsHome.homeImage.fluid}
+backgroundColor={`#040e18`}>
+  <h1 className={styles.test}>Love Your Brand.</h1>
+<h2 className={styles.test}>{data.datoCmsHome.introText}</h2>
+</BackgroundImage>
 
+ <div className={styles.fffContainer}>
+
+ <BackgroundImage style={{height:'100vh'}}
+fluid={data.datoCmsHome.formImage.fluid} className={styles.formFunctionFlow}>
+    <div className={styles.fffContent}>
+      <h2 >{data.datoCmsHome.formTitle}</h2>
+      <p>{data.datoCmsHome.formDescription}</p>
+    </div>
+    </BackgroundImage>
+    <BackgroundImage style={{height:'100vh'}}
+fluid={data.datoCmsHome.functionImage.fluid} className={styles.formFunctionFlow}>
+    <div className={styles.fffContent}>
+      <h2 >{data.datoCmsHome.functionTitle}</h2>
+      <p>{data.datoCmsHome.functionDescription}</p>
+    </div>
+    </BackgroundImage>
+    <BackgroundImage style={{height:'100vh'}}
+fluid={data.datoCmsHome.flowImage.fluid} className={styles.formFunctionFlow}>
+    <div className={styles.fffContent}>
+      <h2 >{data.datoCmsHome.flowTitle}</h2>
+      <p>{data.datoCmsHome.flowDescription}</p>
+    </div>
+    </BackgroundImage>
+    
+   
+    
+    
+ </div>
+   
+    
+   
+  
+ 
+  
+
+<Masonry className="showcase">
+{data.datoCmsHome.workSamples.map(work => (
+        <div key={work.id} className="showcase__item">
+          <figure className="card">
+            
+              <Img fluid={work.coverImage.fluid} />
+            
+            <figcaption className="card__caption">
+              <h6 className="card__title">
+                {work.title}
+              </h6>
+              
+            </figcaption>
+          </figure>
+        </div>
+      ))}
+</Masonry>
   </Layout>
 )
 
 export default IndexPage
+
+export const backgroundStyles = {
+  height:'100vh',
+  padding:'50px'
+}
 
 export const query = graphql`
   query IndexQuery {
@@ -43,15 +103,49 @@ export const query = graphql`
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
-      introText
-      formText
-      heroImage{
+      homeImage{
         fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
-                        ...GatsbyDatoCmsFluid
-                        ...GatsbyImageSharpFluid_tracedSVG
+                        ...GatsbyDatoCmsFluid_tracedSVG
       }
+    }
+    
+      introText
+      formTitle
+      formDescription
+      formImage{
+        fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
+                        ...GatsbyDatoCmsFluid_tracedSVG
+        }
+      }
+      functionTitle
+      functionDescription
+      functionImage{
+        fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
+                        ...GatsbyDatoCmsFluid_tracedSVG
+        }
+      }
+      flowTitle
+      flowDescription
+      flowImage{
+        fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
+                        ...GatsbyDatoCmsFluid_tracedSVG
+        }
+      }
+    workSamples{
+      
+       
+          title
+          coverImage {
+                        fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
+                          ...GatsbyDatoCmsFluid_tracedSVG
+                         }
+                       }
+        
       
     }
+      
+      
+    
   }
   }
   `
