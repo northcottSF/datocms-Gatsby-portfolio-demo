@@ -105,7 +105,7 @@ export const query = graphql`
       }
       homeImage{
         fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
-                        ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsSizes
       }
     }
     
@@ -114,21 +114,21 @@ export const query = graphql`
       formDescription
       formImage{
         fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
-                        ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsSizes
         }
       }
       functionTitle
       functionDescription
       functionImage{
         fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
-                        ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsSizes
         }
       }
       flowTitle
       flowDescription
       flowImage{
         fluid(maxWidth: 450, imgixParams: {fm: "jpg", auto: "compress" }) {
-                        ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsSizes
         }
       }
     workSamples{
@@ -137,7 +137,7 @@ export const query = graphql`
           title
           coverImage {
                         fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-                          ...GatsbyDatoCmsFluid_tracedSVG
+                          ...GatsbyDatoCmsSizes
                          }
                        }
         
